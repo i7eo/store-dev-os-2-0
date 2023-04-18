@@ -7,7 +7,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "node ./scripts/generate-shopifyignore.mjs",
-    "dev": "pnpm build:css & pnpm exec shopify theme dev --store i7eo-development-os-2-0",
+    "dev": "pnpm exec tailwindcss -i .\\assets\\tailwind.css -o .\\assets\\application.css --watch && pnpm exec shopify theme dev --store i7eo-development-os-2-0",
     "build:css": "pnpm exec tailwindcss -i .\\assets\\tailwind.css -o .\\assets\\application.css"
   },
   "keywords": [],
@@ -15,7 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "fast-glob": "^3.2.12",
     "postcss": "^8.4.22",
     "tailwindcss": "^3.3.1"
   },
