@@ -1,1 +1,1 @@
-# :wave: Say hi to Elizabeth :wave
+# :wave: Say hi to Elizabeth
