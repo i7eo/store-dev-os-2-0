@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export const PROJECT_ROOT_DIR = resolve(__dirname, '../')
 export const SHOPIFYIGNORE_FILE_NAME = '.shopifyignore'
 export const SHOPIFY_THEME_FILES = [
-  '.git',
+  // '.git',
   'assets',
   'config',
   'layout',
