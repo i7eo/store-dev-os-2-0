@@ -13,8 +13,9 @@
         {%- endunless %}
         <a href='{{ product.url | within: collection }}'>
           <img
-            src='{{ product.featured_image.src | img_url: 'large' }}'
+            src='{{ product.featured_image.src | image_url: 'large' }}'
             alt='{{ product.featured_image.alt | escape }}'
+            loading='eager'
           >
         </a>
       </div>

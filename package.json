@@ -7,7 +7,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "node ./scripts/generate-shopifyignore.mjs",
-    "dev": "pnpm exec tailwindcss -i .\\assets\\tailwind.css -o .\\assets\\application.css --watch | pnpm exec shopify theme dev --store i7eo-development-os-2-0",
+    "dev": "pnpm exec shopify theme dev --store i7eo-development-os-2-0",
+    "dev:css": "pnpm exec tailwindcss -i .\\assets\\tailwind.css -o .\\assets\\application.css --watch",
     "build:css": "pnpm exec tailwindcss -i .\\assets\\tailwind.css -o .\\assets\\application.css"
   },
   "keywords": [],
