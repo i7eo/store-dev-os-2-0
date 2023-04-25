@@ -1,3 +1,5 @@
+<script src="{{ 'component-dropdown.js' | asset_url }}" defer="defer"></script>
+
 <div class='relative bg-white'>
   <div class='mx-auto px-4 sm:px-6'>
     <div class='flex justify-center items-center py-6 md:justify-start md:space-x-10'>
@@ -16,10 +18,62 @@
         {% for link in linklists['main-menu'].links %}
           <div class='relative'>
             {% if link.links != empty %}
-              <button type='button' class='inline-flex items-center text-base text-gray-500 hover:text-gray-900'>
+              <header-menu>
+                <details>
+                  <summary class='inline-flex items-center text-base text-gray-500 hover:text-gray-900'>
+                    <span
+                      {%- if link.child_active %}
+                        class="text-red-900"
+                      {% endif %}
+                    >
+                      {{ link.title | escape }}
+                    </span>
+                    {% render 'icon.index.dropdown' %}
+                  </summary>
+                  <ul
+                    class='absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'
+                    role='list'
+                    tabindex='-1'
+                  >
+                    {% for childlink in link.links %}
+                      <li>
+                        <a class='-m-3 p-3 flex items start rounded-lg hover:bg-gray-100' href='{{ childlink.url }}'>
+                          <div class='ml-4'>
+                            <span class='text-gray-900 text-base font-medium'>{{ childlink.title | escape }}</span>
+                          </div>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </details>
+              </header-menu>
+
+              {% comment %} <button type='button' class='inline-flex items-center text-base text-gray-500 hover:text-gray-900'>
                 {{ link.title }}
                 {% render 'icon.index.dropdown' %}
               </button>
+              <div class='absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2'>
+                <div class='shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg'>
+                  <div class='relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8'>
+                    <!-- CREATE THE SUBLINK -->
+                    <a class='-m-3 p-3 flex items start rounded-lg hover:bg-gray-100'>
+                      <div class='ml-4'>
+                        <p class='text-gray-900 text-base font-medium'>Sublink 1</p>
+                      </div>
+                    </a>
+                    <a class='-m-3 p-3 flex items start rounded-lg hover:bg-gray-100'>
+                      <div class='ml-4'>
+                        <p class='text-gray-900 text-base font-medium'>Sublink 2</p>
+                      </div>
+                    </a>
+                    <a class='-m-3 p-3 flex items start rounded-lg hover:bg-gray-100'>
+                      <div class='ml-4'>
+                        <p class='text-gray-900 text-base font-medium'>Sublink 3</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div> {% endcomment %}
             {% else %}
               <a
                 href='{{ link.url }}'
