@@ -56,9 +56,31 @@
 11. [enabled_on](https://shopify.dev/docs/themes/architecture/sections/section-schema#enabled_on)
 12. [disabled_on](https://shopify.dev/docs/themes/architecture/sections/section-schema#disabled_on)
 
+
+**注意 `section schema` 中使用不了内置对象，例如：`default: 'shop.url'`。如需使用内置对象请创建 liquid 变量**
 ## Hide Login/
 
 storeadmin => settings => customer accounts => accounts in online store and checkout => unchecked "Show login link in the header of online store and at checkout"
+
+## JSON Template
+
+```json
+{
+  "name": "Template 404",
+  "layout": "custom-theme",
+  "wrapper": "div#template_404.template-404[custom-attr=hello404]",
+  "sections": {
+    "template_404_content": {
+      "type": "404-content"
+    },
+    "template_404_footer": {
+      "type": "404-footer"
+    }
+  },
+  "order": ["template_404_content", "template_404_footer"]
+}
+
+```
 
 ## Q&A
 
