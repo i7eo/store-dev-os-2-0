@@ -36,6 +36,7 @@ class DetailsDisclosure extends HTMLElement {
   }
 
   onFocusOut() {
+    console.log(123)
     setTimeout(() => {
       if (!this.contains(document.activeElement)) this.close();
     });
