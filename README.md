@@ -1,6 +1,6 @@
 # :wave: Say hi to Shopify Store 2.0
 
-> `storefront` 指前台站点，`storeadmin` 指站点后台
+> `storefront` 指前台站点，`storeadmin` 指站点后台，`theme editor` 指站点后台的主题编辑器
 
 ## Shopify Render File
 
@@ -32,6 +32,33 @@
 
 1. linklists/linklist/link => store admin => online store => Navigation => menus
 2. _routes：shopify 内置页面的 url 集合_
+3. _shop：shopify 内置关于当前店铺信息的对象_
+
+## Section Schema
+
+> 通常在代码中定义、编写后会在 store admin 产生相应的 UI。在一个 `section` 文件中只允许出现一个 `schema`，可以在 `section schema` 中使用 JSON。
+
+`section schema` 是 liquid 提供的一个标签，允许开发人员用来定义或描述一个 `section`。其中 `block` 是 `section` 的一部分（子元素）。
+
+`section schema` 包含以下属性：
+
+1. [name](https://shopify.dev/docs/themes/architecture/sections/section-schema#name)
+2. [tag](https://shopify.dev/docs/themes/architecture/sections/section-schema#tag)
+3. [class](https://shopify.dev/docs/themes/architecture/sections/section-schema#class)
+4. [limit](https://shopify.dev/docs/themes/architecture/sections/section-schema#limit)
+5. [settings](https://shopify.dev/docs/themes/architecture/sections/section-schema#settings)
+    - [settings standard attributes](https://shopify.dev/docs/themes/architecture/settings/input-settings#standard-attributes)
+6. [blocks](https://shopify.dev/docs/themes/architecture/sections/section-schema#blocks)
+7. [max_blocks](https://shopify.dev/docs/themes/architecture/sections/section-schema#max_blocks)
+8. [presets](https://shopify.dev/docs/themes/architecture/sections/section-schema#presets)
+9. [default](https://shopify.dev/docs/themes/architecture/sections/section-schema#default)
+10. [locales](https://shopify.dev/docs/themes/architecture/sections/section-schema#locales)
+11. [enabled_on](https://shopify.dev/docs/themes/architecture/sections/section-schema#enabled_on)
+12. [disabled_on](https://shopify.dev/docs/themes/architecture/sections/section-schema#disabled_on)
+
+## Hide Login/
+
+storeadmin => settings => customer accounts => accounts in online store and checkout => unchecked "Show login link in the header of online store and at checkout"
 
 ## Q&A
 

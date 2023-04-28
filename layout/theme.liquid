@@ -10,7 +10,8 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'application.js' | asset_url }}" defer></script>
+    <script src='https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js' defer></script>
+    <script src='{{ 'application.js' | asset_url }}' defer></script>
   </head>
   <body>
     {% section 'header' %}

@@ -1,30 +1,42 @@
-<script src="{{ 'component.details-disclosure.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'component.index.header-dropdown.js' | asset_url }}" defer="defer"></script>
+<script src='{{ 'component.details-disclosure.js' | asset_url }}' defer='defer'></script>
+<script src='{{ 'component.index.header-dropdown.js' | asset_url }}' defer='defer'></script>
 
-<div class='relative bg-white header-wrapper'>
+{% assign menuLinks = linklists[section.settings.menu].links %}
+
+<div class='relative bg-white header-wrapper' x-data='{ mobileMenuOpen: false }'>
   <div class='mx-auto px-4 sm:px-6'>
-    <div class='flex justify-center items-center py-4 md:justify-start md:space-x-10'>
+    <div class='flex justify-between items-center py-4 md:justify-start md:space-x-10'>
       <!-- STORE NAME / STORE LOGO -->
       <div class='flex justify-start lg:flex-1 truncate'>
-        <h1 class='text-xl font-bold truncate'>i7eo Dev Store</h1>
+        <h1 class='text-xl font-bold truncate'>{{ shop.name | escape }}</h1>
+      </div>
+
+      <!-- CREATE THE HAMBURGER MENU BUTTON -->
+      <div class='-mr-2 -my-2 ml-3 md:hidden'>
+        <button
+          x-on:click='mobileMenuOpen = !mobileMenuOpen'
+          type='button'
+          class='bg-white p-2 inline-flex items-center justify-center focus:outline-none'
+        >
+          {% render 'icon.menu' %}
+        </button>
       </div>
 
       <!-- NAVIGATION MENU -->
       <nav class='hidden md:flex space-x-10'>
-        {% comment %}
-          {% for collection in collections %}
-            {{- collection.title | link_to: collection.url }}
-          {% endfor %}
-        {% endcomment %}
-        {% for link in linklists['main-menu'].links %}
+        {% comment %} link in linklists['main-menu'].links {% endcomment %}
+        {% for link in menuLinks %}
           <div class='relative'>
             {% if link.links != empty %}
-              <header-dropdown toggle="close">
+              <header-dropdown toggle='close'>
                 <details>
-                  <summary class='inline-flex items-center text-base text-gray-500 hover:text-gray-900' aria-expanded="false">
+                  <summary
+                    class='inline-flex items-center text-base text-gray-500 hover:text-gray-900'
+                    aria-expanded='false'
+                  >
                     <span
                       {%- if link.child_active %}
-                        class="text-red-900"
+                        class='text-red-900'
                       {% endif %}
                     >
                       {{ link.title | escape }}
@@ -40,7 +52,10 @@
                       >
                         {% for childlink in link.links %}
                           <li>
-                            <a class='-m-2 p-3 flex items start rounded-lg hover:bg-gray-100' href='{{ childlink.url }}'>
+                            <a
+                              class='-m-2 p-3 flex items start rounded-lg hover:bg-gray-100'
+                              href='{{ childlink.url }}'
+                            >
                               <span class='ml-3 text-gray-900 text-base font-bold'>{{ childlink.title | escape }}</span>
                             </a>
                           </li>
@@ -66,9 +81,95 @@
         <a href='{{ routes.cart_url }}' class='whitespace-nowrap text-base text-gray-500 hover:text-gray-900'>
           {% render 'icon.index.shopping-cart' %}
         </a>
-        <a href='{{ routes.account_login_url }}' class='text-base text-gray-500 hover:text-gray-900'>Login</a>
-        <a href='{{ routes.account_register_url }}' class='text-base text-gray-500 hover:text-gray-900'>Register</a>
+
+        {% if shop.customer_accounts_enabled %}
+          <a href='{{ routes.account_login_url }}' class='text-base text-gray-500 hover:text-gray-900'>Login</a>
+          <a href='{{ routes.account_register_url }}' class='text-base text-gray-500 hover:text-gray-900'>Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU CONTAINER -->
+  <div x-show='mobileMenuOpen' class='absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left md:hidden'>
+    <div class='shadow-lg rounded-lg ring-1 ring-black ring-opacity-5 bg-white w-full'>
+      <div class='p-5 divide-y-2 divide-gray-50'>
+        <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
+        <div class='flex items-center justify-between pb-3'>
+          <div>
+            <h1 class='text-lg text-gray-500'>{{ shop.name | escape }}</h1>
+          </div>
+          <div class='-mr-2'>
+            <button
+              x-on:click='mobileMenuOpen = !mobileMenuOpen'
+              type='button'
+              class='bg-white rounded-md p-2 text-gray-500'
+            >
+              {% render 'icon.close' %}
+            </button>
+          </div>
+        </div>
+
+        <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+        <div class='pt-3'>
+          <nav class='grid gap-y-7'>
+            {% comment %} link in linklists['main-menu'].links {% endcomment %}
+            {% for link in menuLinks %}
+              {% assign linkHandle = link.handle | replace: '-', '_' %}
+              {% if link.links != empty %}
+                <div x-data='{ {{ linkHandle }}: false }' class='relative'>
+                  <button
+                    x-on:click='{{ linkHandle }} = !{{linkHandle}}'
+                    type='button'
+                    class='text-base text-gray-500 hover:text-gray-900 flex items-center justify-between w-full {% if link.active == true %}text-red-900{% endif %}'
+                  >
+                    <div>{{ link.title | escape }}</div>
+                    {% render 'icon.index.dropdown' %}
+                  </button>
+                  <div x-show='{{ linkHandle }}' class='grid gap-y-7 py-3'>
+                    {% for childlink in link.links %}
+                      <a
+                        href='{{ childlink.url }}'
+                        class='-m-3 p-3 mt-2 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                      >
+                        <span class='ml-3 text-base font-medium text-gray-500'>{{ childlink.title | escape }}</span>
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% else %}
+                <a
+                  href='{{ link.url }}'
+                  class='-m-3 p-3 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 {% if link.active == true %}text-red-900{% endif %}'
+                >
+                  {{ link.title | escape }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "id": "site_title",
+      "label": "Site Title",
+      "type": "text",
+      "default": "i7eo dev os2.0",
+      "info": "This is website title."
+    },
+    {
+      "id": "menu",
+      "label": "Header Menu",
+      "type": "link_list",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
