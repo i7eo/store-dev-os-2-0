@@ -1,0 +1,12 @@
+{
+  "extends": "@unconfig/ts-config/node.esm.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": [
+    "**/build.config.ts",
+    "**/scripts/**/*",
+    "scripts/**/*"
+  ],
+  "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
+}

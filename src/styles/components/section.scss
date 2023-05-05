@@ -1,0 +1,81 @@
+/* This class is actually not really useful as you could just remove the "section" class to remove the padding. However
+   for clarity, I preferred to assign the class "section" to every section, and then add an extra class conditionally to
+   flush, as it makes it clear in the code that it is a section */
+.section--flush {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section__color-wrapper {
+  display: flow-root; /* Modern clearfix */
+  background: rgb(var(--section-background, var(--background)));
+}
+
+.section__color-wrapper--boxed {
+  border-radius: var(--block-border-radius);
+}
+
+.section__header {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-bottom: min(32px, var(--vertical-breather));
+  margin-left: auto;
+  text-align: center;
+}
+
+.section__header:only-child {
+  margin-bottom: 0;
+}
+
+.section__header--tight {
+  max-width: 800px;
+}
+
+[dir="ltr"] .section__header--left {
+  text-align: left;
+}
+
+[dir="rtl"] .section__header--left {
+  text-align: right;
+}
+
+.section__header--left {
+  margin-left: 0;
+}
+
+[dir="ltr"] .section__header--right {
+  text-align: right;
+}
+
+[dir="rtl"] .section__header--right {
+  text-align: left;
+}
+
+.section__header--right {
+  margin-right: 0;
+}
+
+.section__footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+@media screen and (min-width: 741px) {
+  .section__header {
+    margin-bottom: min(40px, var(--vertical-breather));
+  }
+
+  .section__footer {
+    margin-top: min(40px, var(--vertical-breather));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .section__header {
+    margin-bottom: min(48px, var(--vertical-breather));
+  }
+
+  .section__footer {
+    margin-top: min(48px, var(--vertical-breather));
+  }
+}

@@ -1,0 +1,62 @@
+{%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
+<link rel='preconnect' href='https://cdn.shopify.com'>
+<link rel='dns-prefetch' href='https://productreviews.shopifycdn.com'>
+<link rel='dns-prefetch' href='https://www.google-analytics.com'>
+
+{%- unless settings.heading_font.system? and settings.text_font.system? -%}
+  <link rel='preconnect' href='https://fonts.shopifycdn.com' crossorigin>
+{%- endunless -%}
+
+{%- comment -%}Preload important resources{%- endcomment -%}
+<link rel='preload' as='style' href='{{ 'theme.css' | asset_url }}'>
+<link rel='preload' as='script' href='{{ 'vendor.js' | asset_url }}'>
+<link rel='preload' as='script' href='{{ 'theme.js' | asset_url }}'>
+
+{%- comment -%}
+  IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
+  product or collection pages). In order to keep a main JS file size minimal, the theme also lazyloads non-essential
+  libraries (such as PhotoSwipe or Flickity) and only loads them on demand.
+{%- endcomment -%}
+{%- if request.page_type == 'product' -%}
+  {% comment %} {%- assign selected_media = product.selected_variant.featured_media | default: product.featured_media -%} {% endcomment %}
+  <link rel='preload' as='fetch' href='{{ product.url }}.js' crossorigin>
+  {%- if product.media.size > 1 -%}
+    <link rel='preload' as='script' href='{{ 'flickity.js' | asset_url }}'>
+  {%- endif -%}
+{%- endif -%}
+
+<link rel='stylesheet' href='{{ 'theme.css' | asset_url }}'>
+<script src='{{ 'vendor.js' | asset_url }}' defer></script>
+<script src='{{ 'theme.js' | asset_url }}' defer></script>
+
+{%- if request.page_type == '404' -%}
+{%- elsif request.page_type == 'article' -%}
+{%- elsif request.page_type == 'blog' -%}
+{%- elsif request.page_type == 'captcha' -%}
+{%- elsif request.page_type == 'cart' -%}
+{%- elsif request.page_type == 'collection' -%}
+{%- elsif request.page_type == 'list-collections' -%}
+{%- elsif request.page_type == 'customers/account' -%}
+{%- elsif request.page_type == 'customers/activate_account' -%}
+{%- elsif request.page_type == 'customers/addresses' -%}
+{%- elsif request.page_type == 'customers/login' -%}
+{%- elsif request.page_type == 'customers/order' -%}
+{%- elsif request.page_type == 'customers/register' -%}
+{%- elsif request.page_type == 'customers/reset_password' -%}
+{%- elsif request.page_type == 'gift_card' -%}
+{%- elsif request.page_type == 'index' -%}
+{% comment %} <link rel='preload' as='style' href='{{ 'index.css' | asset_url }}'> {% endcomment %}
+<link rel='preload' as='script' href='{{ 'index.js' | asset_url }}'>
+
+{% comment %} <link rel='stylesheet' href='{{ 'index.css' | asset_url }}'> {% endcomment %}
+<script src='{{ 'index.js' | asset_url }}' defer></script>
+{%- elsif request.page_type == 'page' -%}
+{%- elsif request.page_type == 'password' -%}
+{%- elsif request.page_type == 'policy' -%}
+{%- elsif request.page_type == 'product' -%}
+{%- elsif request.page_type == 'search' -%}
+{%- else -%}
+  <script>
+    console.warn("[Shopify Liquid Object] request['page_type'] has error.")
+  </script>
+{%- endif -%}

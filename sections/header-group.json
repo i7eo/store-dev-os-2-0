@@ -1,0 +1,63 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "07f27e99-cd07-4626-b067-ff4898f79e96": {
+          "type": "message_link",
+          "settings": {
+            "message_link_text": "<p><a href=\"\/collections\/chandeliers\" title=\"Chandeliers - All\"><strong>FREE SHIPPING<\/strong> ON ALL ORDERS. SHOP NOW &gt;&gt;<\/a><\/p>"
+          }
+        },
+        "04e7c8fa-62fc-47e3-ad75-5865333487dd": {
+          "type": "message_link",
+          "settings": {
+            "message_link_text": "<p><a href=\"\/collections\/new-arrival\" title=\"All Products - New Arrival\">FRESH TRENDS! SRARTING FROM <strong>$65.99<\/strong> SHOP NOW &gt;&gt;<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "07f27e99-cd07-4626-b067-ff4898f79e96",
+        "04e7c8fa-62fc-47e3-ad75-5865333487dd"
+      ],
+      "settings": {
+        "announcement_bar_position": "non_sticky",
+        "announcement_text_size": "small",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "#282828",
+        "text_color": "#ffffff",
+        "button_background": "#56112a",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "enable_sticky_header": true,
+        "logo": "shopify:\/\/shop_images\/logo.mobile.min.webp",
+        "logo_max_width": 120,
+        "mobile_logo": "shopify:\/\/shop_images\/logo.mobile.min.webp",
+        "mobile_logo_max_width": 120,
+        "navigation_menu": "main-menu",
+        "sidebar_navigation_menu": "",
+        "header_layout": "logo_left_navigation_center",
+        "show_icons": false,
+        "reduce_desktop_padding": false,
+        "show_locale_selector": false,
+        "show_country_selector": false,
+        "enable_transparent_header": false,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify:\/\/shop_images\/logo.mobile.min.webp",
+        "transparent_mobile_logo": "shopify:\/\/shop_images\/logo.mobile.min.webp",
+        "search_menu": ""
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

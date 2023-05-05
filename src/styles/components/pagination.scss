@@ -1,0 +1,80 @@
+/**
+ * -------------------------------------------------------------
+ * PAGINATION
+ * -------------------------------------------------------------
+ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pagination__nav {
+  display: table;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+.pagination__nav-item {
+  position: relative;
+  display: table-cell;
+  width: 47px;
+  height: 47px;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 1px 0 0 0 rgb(var(--border-color)), 0 1px 0 0 rgb(var(--border-color)), 1px 1px 0 0 rgb(var(--border-color)), 1px 0 0 0 rgb(var(--border-color)) inset, 0 1px 0 0 rgb(var(--border-color)) inset;
+}
+
+[dir="ltr"] .pagination__nav-item:first-child,
+[dir="ltr"] .pagination__nav-item:first-child::before {
+  border-top-left-radius: var(--button-border-radius);
+  border-bottom-left-radius: var(--button-border-radius);
+}
+
+[dir="rtl"] .pagination__nav-item:first-child,
+[dir="rtl"] .pagination__nav-item:first-child::before {
+  border-top-right-radius: var(--button-border-radius);
+  border-bottom-right-radius: var(--button-border-radius);
+}
+
+[dir="ltr"] .pagination__nav-item:last-child,
+[dir="ltr"] .pagination__nav-item:last-child::before {
+  border-top-right-radius: var(--button-border-radius);
+  border-bottom-right-radius: var(--button-border-radius);
+}
+
+[dir="rtl"] .pagination__nav-item:last-child,
+[dir="rtl"] .pagination__nav-item:last-child::before {
+  border-top-left-radius: var(--button-border-radius);
+  border-bottom-left-radius: var(--button-border-radius);
+}
+
+.pagination__nav-item svg {
+  margin: 0 auto;
+}
+
+.pagination__nav-item[aria-current]::before {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  bottom: 0;
+  left: 2px;
+  z-index: 1;
+  max-width: calc(100% - 3px);
+  max-height: calc(100% - 3px);
+  pointer-events: none;
+  content: '';
+  box-shadow: 0 0 0 2px currentcolor;
+}
+
+@media screen and (min-width: 741px) {
+  .pagination {
+    margin-top: 48px;
+  }
+
+  .pagination__nav-item {
+    width: 56px;
+    height: 56px;
+  }
+}

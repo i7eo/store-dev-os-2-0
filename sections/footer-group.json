@@ -1,0 +1,153 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "custom_icon_width": 50,
+            "title": "Free shipping",
+            "content": "<p>Free worldwide shipping and returns - customs and duties taxes included<\/p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-phone",
+            "custom_icon_width": 50,
+            "title": "Customer service",
+            "content": "<p>We are available from monday to friday to answer your questions.<\/p>"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-lock",
+            "custom_icon_width": 50,
+            "title": "Secure payment",
+            "content": "<p>Your payment information is processed securely.<\/p>"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-email",
+            "custom_icon_width": 50,
+            "title": "Contact us",
+            "content": "<p>Need to contact us ? Just send us an e-mail at info@yourstore.com<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "Subscribe to our newsletter",
+        "content": "<p>SUBSCRIBE & GET <strong>$25 <\/strong>OFF COUPON<\/p>",
+        "text_position": "right",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "About our store",
+            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.<\/p><p>👀 1<\/p>"
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "footer"
+          }
+        },
+        "9293dc01-5184-467c-a389-a98b263b31e1": {
+          "type": "links",
+          "settings": {
+            "menu": "resource"
+          }
+        },
+        "77f2cd1e-daac-492c-9b4d-5f89c7d51d2f": {
+          "type": "links",
+          "settings": {
+            "menu": "help-support"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "Newsletter",
+            "content": "<p>SUBSCRIBE & GET <strong>$25 <\/strong>OFF COUPON<\/p>"
+          }
+        },
+        "8613c9f6-46f2-4b4c-b435-a83f2692752e": {
+          "type": "html",
+          "settings": {
+            "html_title": "Customer Service",
+            "html_content": "<div class=\"footer__item-content__item\">\n<span class=\"icon\">☎️<\/span>\n<div class=\"content\">\n<a class=\"link--faded\" href=\"tel:206-880-1339\"><span>206-880-1339<\/span><\/a>\n<p class=\"text--subdued\">Hours: 10:00 AM - 6:00 PM PST<\/p>\n<\/div>\n<\/div>\n\n<div class=\"footer__item-content__item\">\n<span class=\"icon\">💬<\/span>\n<div class=\"content\">\n<a class=\"link--faded\" target=\"_blank\" href=\"https:\/\/tawk.to\/chat\/5ac143bcd7591465c709195c\/default\/?%24_tawk_popout=true&amp;%24_tawk_sk=5adefe61d3c8c24ad4c7814a&amp;%24_tawk_tk=9fc216d694d5d837d9c490d6bde79ac0&amp;v=573\"><span>Chat<\/span><\/a>\n<\/div>\n<\/div>\n\n<div class=\"footer__item-content__item\">\n<span class=\"icon\">✉️<\/span>\n<div class=\"content\">\n<a class=\"link--faded\" href=\"mailto:support@sofary.com\"><span>Email Support<\/span><\/a>\n<p class=\"text--subdued\">Response within 24 hours<\/p>\n<\/div>\n<\/div>"
+          }
+        },
+        "social_media": {
+          "type": "social_media",
+          "disabled": true,
+          "settings": {
+            "title": "Follow us",
+            "content": "<p>To configure social media, go to your social media settings. Change this text in the theme editor.<\/p>"
+          }
+        },
+        "8c57a527-c3de-45b0-8382-64a2dec077a5": {
+          "type": "html",
+          "settings": {
+            "html_title": "",
+            "html_content": "<div class=\"footer__item-content__item\">\n<a href=\"https:\/\/www.inc.com\/profile\/Sofary-Lighting\" itemprop=\"url\" target=\"_blank\">\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2635\/8844\/files\/footer.inc.logo.min_430x.webp?v=1683112101\" alt=\"Sofary Light inc logo\" width=\"150\" height=\"150\" loading=\"lazy\">\n<\/a>\n<\/div>\n\n<div class=\"footer__item-content__item\">\n<a href=\"https:\/\/www.bbb.org\/northwest\/business-reviews\/retail-light-fixtures\/sofary-lighting-llc-in-seattle-wa-1000054101\/#sealclick\" target=\"_blank\" rel=\"nofollow\">\n<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2635\/8844\/files\/footer.bbb.logo.min_430x.webp?v=1683112648\" alt=\"Sofary Light inc logo\" width=\"150\" height=\"150\" loading=\"lazy\">\n<\/a>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "links",
+        "9293dc01-5184-467c-a389-a98b263b31e1",
+        "77f2cd1e-daac-492c-9b4d-5f89c7d51d2f",
+        "newsletter",
+        "8613c9f6-46f2-4b4c-b435-a83f2692752e",
+        "social_media",
+        "8c57a527-c3de-45b0-8382-64a2dec077a5"
+      ],
+      "settings": {
+        "show_payment_icons": false,
+        "enable_follow_on_shop": false,
+        "show_country_selector": false,
+        "show_locale_selector": false
+      }
+    }
+  },
+  "order": [
+    "text-with-icons",
+    "newsletter",
+    "footer"
+  ]
+}

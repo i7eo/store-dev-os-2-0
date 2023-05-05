@@ -1,0 +1,45 @@
+/**
+ * -------------------------------------------------------------
+ * CONTAINER
+ * -------------------------------------------------------------
+ */
+
+/* Implementation note: the double selector for policy container allows to increase selector specificity to override
+   Shopify default style */
+.container,
+.shopify-policy__container.shopify-policy__container {
+  --container-outer-margin: 0; /* Inside a container only the gutter remains as margin */
+
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding-right: var(--container-gutter);
+  padding-left: var(--container-gutter);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container--small {
+  max-width: 930px;
+}
+
+@media screen and (max-width: 999px) {
+  /* Variation that remove the padding on small devices */
+  .container--flush {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container--medium {
+    padding-right:
+      calc(
+        var(--container-gutter) + var(--grid-column-width) + var(--grid-gap)
+      ); /* Medium container just adds an extra column on left and top */
+
+    padding-left:
+      calc(
+        var(--container-gutter) + var(--grid-column-width) + var(--grid-gap)
+      );
+  }
+}

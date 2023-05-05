@@ -1,0 +1,77 @@
+/**
+ * --------------------------------------------------------------------
+ * ASPECT RATIO
+ * --------------------------------------------------------------------
+ */
+
+.aspect-ratio {
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* The aspect-ratio can also contain a native HTML5 video element */
+.aspect-ratio img,
+.aspect-ratio video,
+.aspect-ratio svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aspect-ratio--square img,
+.aspect-ratio--short img,
+.aspect-ratio--tall img {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* We must use this and not logical property here */
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) !important;
+  object-fit: contain;
+}
+
+.aspect-ratio--square {
+  padding-bottom: 100% !important;
+}
+
+.aspect-ratio--short {
+  padding-bottom: 75% !important;
+}
+
+.aspect-ratio--tall {
+  padding-bottom: 150% !important;
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .aspect-ratio {
+    aspect-ratio: var(--aspect-ratio);
+    padding-bottom: 0 !important;
+  }
+
+  .aspect-ratio--natural img,
+  .aspect-ratio--natural video,
+  .aspect-ratio--natural svg {
+    position: relative;
+    width: auto;
+  }
+
+  .aspect-ratio--square {
+    aspect-ratio: 1;
+  }
+
+  .aspect-ratio--short {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-ratio--tall {
+    aspect-ratio: 2 / 3;
+  }
+}

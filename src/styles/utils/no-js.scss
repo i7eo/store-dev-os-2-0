@@ -1,0 +1,30 @@
+/**
+ * --------------------------------------------------------------------
+ * NON-JS AND REVEAL ELEMENTS
+ * --------------------------------------------------------------------
+ */
+
+.js .no-js {
+  display: none !important;
+}
+
+.js .js\:hidden,
+.no-js .no-js\:hidden {
+  display: none;
+}
+
+[reveal] {
+  opacity: 0;
+}
+
+[reveal-visibility] {
+  visibility: hidden;
+}
+
+.no-js [reveal] {
+  opacity: 1;
+}
+
+.no-js [reveal-visibility] {
+  visibility: visible;
+}

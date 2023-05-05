@@ -1,0 +1,14 @@
+{
+  "extends": "@unconfig/ts-config/browser.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": ["src/scripts/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**",
+    "**/tests/**",
+    "**/*.md"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-complete-tag",
+    "formulahendry.auto-rename-tag",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "iceliu.highlight-icemode",
+    "kisstkondoros.vscode-gutter-preview",
+    "wix.vscode-import-cost",
+    "DavidAnson.vscode-markdownlint",
+    "leizongmin.node-module-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "mohsen1.prettify-json",
+    "mrmlnc.vscode-scss",
+    "Shopify.theme-check-vscode",
+    "killalau.vscode-liquid-snippets",
+    "stylelint.vscode-stylelint",
+    "SimonSiefke.svg-preview",
+    "wayou.vscode-todo-highlight"
+  ]
+}

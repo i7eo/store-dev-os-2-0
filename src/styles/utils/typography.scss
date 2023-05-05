@@ -1,0 +1,230 @@
+/**
+ * -------------------------------------------------------------
+ * GENERAL TYPOGRAPHY
+ * -------------------------------------------------------------
+ */
+
+html {
+  font-family: var(--text-font-family);
+  font-size: calc(var(--base-font-size) - 1px);
+  font-style: var(--text-font-style);
+  font-weight: var(--text-font-weight);
+  line-height: 1.7142857143;
+  color: rgb(var(--text-color));
+  background: rgb(var(--background));
+}
+
+:lang(ar) * {
+  /* Arabic should never have letter spacing as it makes it unreadable on some fonts */
+  letter-spacing: normal !important;
+}
+
+p strong,
+p b {
+  font-weight: var(--text-font-bold-weight);
+}
+
+.heading,
+.blockquote,
+.rte h1,
+.rte h2,
+.rte h3,
+.rte h4,
+.rte h5,
+.rte h6,
+.rte blockquote {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-style: var(--heading-font-style);
+  font-weight: var(--heading-font-weight);
+  color: rgb(var(--heading-color));
+  text-transform: var(--heading-text-transform);
+}
+
+.text--small {
+  font-size: calc(var(--base-font-size) - 2px);
+  line-height: 1.6923076923;
+}
+
+.text--xsmall {
+  font-size: calc(var(--base-font-size) - 3px);
+  line-height: 1.5;
+}
+
+.text--xxsmall {
+  font-size: calc(var(--base-font-size) - 5px);
+  line-height: 1.5;
+}
+
+.text--large {
+  font-size: calc(var(--base-font-size) + 1px);
+}
+
+.text--subdued {
+  color: rgb(var(--text-color) 0.7);
+}
+
+[dir="ltr"] .text--left {
+  text-align: left;
+}
+
+[dir="rtl"] .text--left {
+  text-align: right;
+}
+
+.text--center {
+  text-align: center;
+}
+
+[dir="ltr"] .text--right {
+  text-align: right;
+}
+
+[dir="rtl"] .text--right {
+  text-align: left;
+}
+
+.text--strong {
+  font-weight: var(--text-font-bold-weight);
+}
+
+.text--underlined {
+  text-decoration: underline;
+  text-decoration-color: currentcolor;
+  text-underline-offset: 3px;
+}
+
+p a:not(.button),
+.rte a:not(.button),
+.link {
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--text-color) 0.35);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease-in-out, -webkit-text-decoration-color 0.2s ease-in-out;
+  transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-text-decoration-color 0.2s ease-in-out;
+}
+
+/* When the link class is assigned to the heading--small, we have to force increase the line height to prevent the line to overlap */
+.heading--small.link {
+  line-height: 1.8;
+}
+
+@media screen and (pointer: fine) {
+  p a:not(.button):hover,
+  .rte a:not(.button):hover,
+  .link:hover {
+    color: rgb(var(--text-color));
+    text-decoration-color: rgb(var(--text-color));
+  }
+}
+
+/* Animated link */
+.link--animated {
+  position: relative;
+  display: block;
+  width: max-content;
+}
+
+.link--animated::after {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: '';
+  background: currentcolor;
+  transition: transform 0.3s;
+  transform: scaleX(0);
+  transform-origin: var(--transform-origin-end);
+}
+
+.text--underlined.link--animated {
+  text-decoration: none;
+}
+
+.text--underlined.link--animated::after {
+  transform: scaleX(1);
+}
+
+@media screen and (pointer: fine) {
+
+  @keyframes text-underlined-animation {
+    0% {
+      transform: scaleX(1);
+      transform-origin: var(--transform-origin-end);
+    }
+
+    50% {
+      transform: scaleX(0);
+      transform-origin: var(--transform-origin-end);
+    }
+
+    51% {
+      transform-origin: var(--transform-origin-start);
+    }
+
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  .link--animated[aria-expanded="true"]::after,
+  .link--animated:hover::after {
+    transform: scaleX(1);
+    transform-origin: var(--transform-origin-start);
+  }
+
+  .text--underlined.link--animated:hover::after {
+    animation: text-underlined-animation 0.6s;
+  }
+}
+
+/* Reduced opacity linked */
+.link--faded {
+  transition: opacity 0.25s ease-in-out;
+}
+
+.link--faded:hover {
+  opacity: 0.7;
+}
+
+/* Hide a text visually without removing it from screen readers (mostly used for accessibility) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* Headings */
+
+@media screen and (min-width: 741px) {
+  html {
+    font-size: var(--base-font-size);
+    line-height: 1.7333333333;
+  }
+
+  .text--small {
+    font-size: calc(var(--base-font-size) - 1px);
+    line-height: 1.714285713;
+  }
+
+  .text--xsmall {
+    font-size: calc(var(--base-font-size) - 2px);
+    line-height: 1.5384615385;
+  }
+
+  .text--xxsmall {
+    font-size: calc(var(--base-font-size) - 4px);
+    line-height: 1.5384615385;
+  }
+
+  .text--large {
+    font-size: calc(var(--base-font-size) + 5px);
+  }
+}
