@@ -15,7 +15,7 @@ export default defineConfig((options: Options) => [
     target: 'es5',
     treeshake: true,
     noExternal: [/(.*)/],
-    minify: !options.watch,
+    minify: !!options.watch,
 
     // disable generate d.ts to improve bundling speed
     // sourcemap: true,
@@ -35,7 +35,7 @@ export default defineConfig((options: Options) => [
   {
     entry: ['src/styles/page.*.scss'],
     outDir: './assets',
-    minify: !options.watch,
+    minify: !!options.watch,
     esbuildPlugins: [
       ESBuildSassPlugin({
         async transform(source, resolveDir, filePath) {

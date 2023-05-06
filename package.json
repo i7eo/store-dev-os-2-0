@@ -28,7 +28,6 @@
     "gen:themecheckignore": "pnpm exec tsx ./scripts/generate/themecheckignore.ts",
     "theme": "pnpm exec shopify theme dev --store sofary --theme 121361793118 --theme-editor-sync",
     "dev": "pnpm exec tsup --config ./build.config.ts --watch",
-    "build": "pnpm exec tsup --config ./build.config.ts",
     "commit": "czg"
   },
   "dependencies": {
