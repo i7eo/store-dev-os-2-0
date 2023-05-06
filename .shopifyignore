@@ -12,6 +12,7 @@
 .stylelintignore
 .stylelintrc.js
 .vscode
+build.config.ts
 LICENSE
 node_modules
 package.json

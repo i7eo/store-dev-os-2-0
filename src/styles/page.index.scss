@@ -1,0 +1,15 @@
+/**
+ * NOTE: most of the CSS variables used are defined in the "css-variables.liquid" snippet file
+ */
+//:========================================: "Focal" Theme page deps :========================================://
+@use './utils/setup.scss';
+@use './components/aspect-ratio.scss';
+@use './components/breadcrumb.scss';
+@use './components/icon.scss';
+@use './components/linklist.scss';
+@use './components/list.scss';
+@use './components/page.scss';
+@use './components/pagination.scss';
+@use './components/placeholder.scss';
+@use './components/section.scss';
+//:========================================: "Focal" Theme page deps :========================================://

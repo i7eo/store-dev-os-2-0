@@ -19,7 +19,6 @@
     "type": "git",
     "url": "https://github.com/Sofary-Lighting/sofary-lighting-os2.git"
   },
-  "sideEffects": false,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm exec run-s gen:**",
@@ -27,7 +26,8 @@
     "gen:stylelintignore": "pnpm exec tsx ./scripts/generate/stylelintignore.ts",
     "gen:shopifyignore": "pnpm exec tsx ./scripts/generate/shopifyignore.ts",
     "gen:themecheckignore": "pnpm exec tsx ./scripts/generate/themecheckignore.ts",
-    "dev": "pnpm exec shopify theme dev --store sofary --theme 121361793118 --theme-editor-sync",
+    "theme": "pnpm exec shopify theme dev --store sofary --theme 121361793118 --theme-editor-sync",
+    "dev": "pnpm exec tsup --config ./build.config.ts --watch",
     "build": "pnpm exec tsup --config ./build.config.ts",
     "commit": "czg"
   },
@@ -44,21 +44,27 @@
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
+    "@swc/core": "^1.3.56",
+    "@types/clean-css": "^4.2.6",
     "@types/node": "*",
+    "@types/postcss-preset-env": "^7.7.0",
     "@unconfig/commitlint-config": "latest",
     "@unconfig/eslint-config": "latest",
     "@unconfig/lint-staged-config": "latest",
     "@unconfig/prettier-config": "latest",
     "@unconfig/simple-git-hooks-config": "latest",
     "@unconfig/ts-config": "latest",
-    "chalk": "^5.2.0",
-    "consola": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "clean-css": "^5.3.1",
     "esbuild": "^0.17.18",
+    "esbuild-sass-plugin": "^2.4.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.18",
     "postcss-html": "^1.5.0",
+    "postcss-preset-env": "^7.8.2",
     "postcss-scss": "4.0.5",
     "rimraf": "^5.0.0",
+    "sass": "^1.56.1",
     "stylelint": "^14.14.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^9.0.0",
@@ -74,5 +80,10 @@
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.17.18"
+    }
   }
 }
