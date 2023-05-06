@@ -19,14 +19,16 @@
     "type": "git",
     "url": "https://github.com/Sofary-Lighting/sofary-lighting-os2.git"
   },
+  "sideEffects": false,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm exec run-s gen:**",
-    "gen:eslintignore": "pnpm exec tsx ./scripts/generate-eslintignore.ts",
-    "gen:stylelintignore": "pnpm exec tsx ./scripts/generate-stylelintignore.ts",
-    "gen:shopifyignore": "pnpm exec tsx ./scripts/generate-shopifyignore.ts",
-    "gen:themecheckignore": "pnpm exec tsx ./scripts/generate-themecheckignore.ts",
+    "gen:eslintignore": "pnpm exec tsx ./scripts/generate/eslintignore.ts",
+    "gen:stylelintignore": "pnpm exec tsx ./scripts/generate/stylelintignore.ts",
+    "gen:shopifyignore": "pnpm exec tsx ./scripts/generate/shopifyignore.ts",
+    "gen:themecheckignore": "pnpm exec tsx ./scripts/generate/themecheckignore.ts",
     "dev": "pnpm exec shopify theme dev --store sofary --theme 121361793118 --theme-editor-sync",
+    "build": "tsup --config ./scripts/build/config.ts",
     "commit": "czg"
   },
   "dependencies": {
